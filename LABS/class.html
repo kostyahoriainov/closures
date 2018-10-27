@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+ <head>
+    <title>Lab 1</title>
+    <meta charset="utf-8">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+     <link rel="stylesheet" href="../_/css/style.css">
+      <script src="../_/js/script.js"></script>
+ </head>
+<body>
+<div class="container">
+    <ul id="results"></ul>
+	<div id="tickets"></div>
+    
+
+    <div id="box"></div>
+    <!--
+     <div id="box1"></div>
+    -->
+	
+	
+<script>
+ 
+ function newFunc() {
+     var arr = [];
+     for (var i = 0; i < 10; i++) {
+         (function(i){
+            arr.push(function () {
+            console.log(i);
+            })
+         })(i)
+
+
+     }
+
+     return arr;
+ }
+
+ var test = newFunc();
+
+ console.log(test[0])
+ test[1]()
+ test[2]()
+ test[3]()
+ test[4]()
+
+
+ function ya (a) {
+     var test = a;
+
+     function b (c){
+         return test*c;
+     }
+
+     return b
+ }
+
+
+ console.log(ya(1)(2))
+
+
+function first(a) {
+
+    var calc = a;
+
+    function second(b) {
+        calc += b;
+        return second;
+    }
+
+    second.toString = function() {
+        return calc;
+    }
+
+    return second
+}
+
+console.log(first(3)(4)(3))
+console.log(first(2)(4)(4)(8)(1))
+console.log(first(1)(9)(0)(10))
+console.log(first(0)(5))
+
+setTimeout(function() {
+    console.log(first(2)(3))
+}, 1000);
+
+
+
+</script>
+
+</div> <!-- /.container-->
+</body>
+</html>

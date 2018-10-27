@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+ <head>
+    <title>Lab 1</title>
+    <meta charset="utf-8">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+     <link rel="stylesheet" href="../_/css/style.css">
+      <script src="../_/js/script.js"></script>
+ </head>
+<body>
+<div class="container">
+    <ul id="results"></ul>
+	<div id="tickets"></div>
+    
+
+    <div id="box">a</div>
+    
+     <div id="box1">s</div>
+   
+	
+	
+<script>
+ 
+let box = document.querySelector('#box')
+
+ function animateIt(el,){
+       let left = 0,
+           top = 0;
+
+       return function a(interval){
+           left += interval;
+           top += interval;
+           el.style.position = 'absolute';
+           el.style.top = top;
+           el.style.left = left;
+           console.log('box' + left)
+           console.log('box' + top)
+           return a
+
+       }
+   }
+
+   setInterval( animateIt, box, 10, 200 );
+
+
+
+</script>
+
+</div> <!-- /.container-->
+</body>
+</html>
