@@ -15,29 +15,42 @@
 <script>
 
 
-    function makeCount (){
+var makeCount = (function (){
      var count = 0;
 
-        return function set (){
+        function set (){
            return ++count;
         }
 
-};
+        function show(){
+            assert(true, count);
+        }
+
+        return {
+            show:show,
+            set:set
+        };
+
+}());
 
 /*
   Сейчас код работает так, что нельзя создать
   независимые счетчики, например
 */
 
-const c1 = makeCount();
-c1();
-c1();
-c1();
-console.log(c1());
-const c2 = makeCount();
-c2();
-console.log(c2()); // выводит 4 а должен вывести  1
+var c1 = makeCount;
+c1.set();
+c1.set();
+c1.set();
+assert(true, "==== c1 ====");
+c1.show();  // выводит 3
 
+var c2 = makeCount;
+c2.set();
+assert(true, "==== c2 ====");
+c2.show(); // выводит 4 а должен вывести  1
+assert(true, "==== c1 ====");
+c1.show(); // выводит 4 а должен вывести  3
 
 /*
  Исправить код  функции makeCount  и код ее вызова так, чтобы можно было создать независимые счетчики
