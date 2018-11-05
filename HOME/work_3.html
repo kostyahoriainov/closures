@@ -25,15 +25,31 @@
 var arr  = [11, 66, 33, 44, 22, 55, 2];
 
 function filter(arr, func){
-    // to do
+    var newArr = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (func(arr[i]) === true) {
+            newArr.push(arr[i]);
+        }   
+    }
+    return newArr
 }
 
-// Проверка
-var a = filter(arr, function(item){
-        // to do
-});
+function checkEl (el) {
+    if (el > 50) {
+        return true
+    } else {
+        return false
+    }
+}
 
-console.log(a);  //   [66, 55]]
+console.log(filter(arr, checkEl));
+
+// Проверка
+//var a = filter(arr, function(item){
+        // to do
+//});
+
+//console.log(a);  //   [66, 55]]
 
 
 
